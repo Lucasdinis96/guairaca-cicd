@@ -49,13 +49,13 @@ jobs:
 
     steps:
       - name: Checkout do código
-        user: actions/checkout@v4
+        uses: actions/checkout@v4
       
       - name: Configurar Github Pages
-        user: action/configure-pages@v4
+        uses: action/configure-pages@v4
 
       - name: Empacotar artefato
-        user: actions/uploads-pages-artifact@v3
+        uses: actions/uploads-pages-artifact@v3
         with:
           path: '.'
 
