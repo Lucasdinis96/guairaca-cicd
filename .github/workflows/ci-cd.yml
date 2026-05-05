@@ -37,31 +37,31 @@ jobs:
 
 # JOB 2 - CD: Entrega Continua (Deploy)
 
-cd:
-  name: CD - Deploy no Github Pages
-  needs: ci
-  if: github.ref == 'refs/heads/main'
-  runs-on: ubuntu-latest
+  cd:
+    name: CD - Deploy no Github Pages
+    needs: ci
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
 
-  enviroment:
-    name: github-pages
-    url: ${{ steps.deploument.outputs.page_url }}
+    enviroment:
+      name: github-pages
+      url: ${{ steps.deploument.outputs.page_url }}
 
-  steps:
-    - name: Checkout do código
-      user: actions/checkout@v4
-    
-    - name: Configurar Github Pages
-      user: action/configure-pages@v4
+    steps:
+      - name: Checkout do código
+        user: actions/checkout@v4
+      
+      - name: Configurar Github Pages
+        user: action/configure-pages@v4
 
-    - name: Empacotar artefato
-      user: actions/uploads-pages-artifact@v3
-      with:
-        path: '.'
+      - name: Empacotar artefato
+        user: actions/uploads-pages-artifact@v3
+        with:
+          path: '.'
 
-    - name: Publicar no Github Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
- 
+      - name: Publicar no Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+  
 
 
