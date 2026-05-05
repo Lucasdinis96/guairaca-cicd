@@ -43,7 +43,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
-    enviroment:
+    environment:
       name: github-pages
       url: ${{ steps.deploument.outputs.page_url }}
 
